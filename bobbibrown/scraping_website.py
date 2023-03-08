@@ -20,7 +20,7 @@ for link in all_links:
 
     # TODO: FINISH THIS PART WITH PATTERN MATCHING
     # TODO: SEE IF BOBBI BROWN HAS AN EASIER WAY THAN MAC OF EXTRACTING SHADE NAMES
-    
+
     if ingredients != None:
         ingredients = ingredients.text.strip()
         if len(link_parts) - products_index == 4:
