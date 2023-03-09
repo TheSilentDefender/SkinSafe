@@ -28,5 +28,5 @@ get_all_links()
 
 with open("all_ulta_links.txt", 'w') as f:
     for link in visited:
-        f.write(link)
+        f.write('\n'.join(link))
     f.close()
