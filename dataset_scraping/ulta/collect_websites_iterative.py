@@ -21,8 +21,9 @@ def get_all_links(allowed_prefixes):
         visited.add(elem)
 
         # write immediately
-        with open('/dataset_scraping/ulta/visited.txt', mode='a', encoding='utf-8') as f:
+        with open('dataset_scraping/ulta/visited.txt', mode='a', encoding='utf-8') as f:
             f.write(elem + "\n")
+            f.close()
 
         html_text = requests.get(elem).text
         soup = BeautifulSoup(html_text, 'lxml')
@@ -34,8 +35,9 @@ def get_all_links(allowed_prefixes):
                 unvisited.add(url)
 
                 # write immediately
-                with open('/dataset_scraping/ulta/unvisited.txt', mode='a', encoding='utf-8') as f:
+                with open('dataset_scraping/ulta/unvisited.txt', mode='a', encoding='utf-8') as f:
                     f.write(url + "\n")
+                    f.close()
                 
                 print(url)
 

@@ -83,7 +83,7 @@ def extract_content(link_list):
             print(data)
 
             # write to csv
-            with open("/dataset_scraping/ulta/products.csv", 'a', encoding="utf-8") as f:
+            with open("dataset_scraping/ulta/products.csv", 'a', encoding="utf-8") as f:
                 f.write(data + "\n")
         
         else:
