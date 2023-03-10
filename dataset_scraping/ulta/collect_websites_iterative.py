@@ -20,14 +20,17 @@ def get_all_links(allowed_prefixes):
         elem = unvisited.pop()
         visited.add(elem)
 
+        try:
+            html_text = requests.get(elem).text
+            soup = BeautifulSoup(html_text, 'lxml')
+            links = soup.find_all('a')
+        except:
+            continue
+
         # write immediately
         with open('dataset_scraping/ulta/visited.txt', mode='a', encoding='utf-8') as f:
             f.write(elem + "\n")
             f.close()
-
-        html_text = requests.get(elem).text
-        soup = BeautifulSoup(html_text, 'lxml')
-        links = soup.find_all('a')
 
         for link in links:
             url = link.get('href')
