@@ -12,7 +12,6 @@ def contains_one_of(link, list):
             return True
     return False
 
-
 def get_all_links(allowed_prefixes):
     
     while len(unvisited) > 0:
