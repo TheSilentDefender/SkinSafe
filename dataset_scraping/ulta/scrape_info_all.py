@@ -63,8 +63,11 @@ def extract_content(link_list):
                     brand = b.text
 
             # product name
-            product = soup.find('span', class_='Text-ds Text-ds--title-5 Text-ds--left').text
-
+            try:
+                product = soup.find('span', class_='Text-ds Text-ds--title-5 Text-ds--left').text
+            except:
+                continue
+            
             # shade name if applicable
             shade = "N/A"
             shade_container = soup.find('div', class_="SwatchDropDown__nameDescription")
