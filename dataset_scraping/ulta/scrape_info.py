@@ -38,8 +38,13 @@ def extract_content(link_list):
 
         if ("https://www.ulta.com/p" in link): 
 
-            html_text = requests.get(link)
-            soup = BeautifulSoup(html_text.content.decode('utf-8'), "lxml")
+            try:
+                html_text = requests.get(link)
+                soup = BeautifulSoup(html_text.content.decode('utf-8'), "lxml")
+            except:
+                with open('dataset_scraping/ulta/errored.txt', 'a', encoding="utf-8") as f:
+                    f.write(link + "\n")
+                continue
             
             # tags
             tags = ""
