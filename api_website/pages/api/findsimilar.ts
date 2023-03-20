@@ -35,7 +35,7 @@ async function fetchProducts(productIds: ObjectId[]) {
 }
 
 async function fetchProduct(productId: ObjectId): Promise<ProductProps> {
-  const data = await fetch('http://localhost:3000/api/allproducts').then(
+  const data = await fetch('https://skin-safe.vercel.app/api/allproducts').then(
     (response) => response.json()
   );
 

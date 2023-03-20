@@ -4,7 +4,7 @@ export default async (req: any, res: { json: (arg0: any) => void }) => {
   try {
     const searchQuery = req.query.search;
     if (!searchQuery) {
-      fetch('http://localhost:3000/api/allproducts')
+      fetch('https://skin-safe.vercel.app/api/allproducts')
         .then((response) => {
           return response.json();
         }
