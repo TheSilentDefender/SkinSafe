@@ -51,6 +51,8 @@ async function fetchProduct(productId: ObjectId): Promise<ProductProps> {
 
   data.sort((a: any, b: any) => b.similarity - a.similarity);
   
+  
+
   for (let i = 0; i < data.length; i++) {
     if (data[i].similarity === 1) {
       data.splice(i, 1);
