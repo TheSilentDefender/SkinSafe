@@ -4,7 +4,8 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <body>
+      <head><title>SkinSafe</title></head>
+      <body className="h-screen w-screen bg-gradient-to-br bg-no-repeat from-purple-900 to-blue-900">
         <Main />
         <NextScript />
       </body>

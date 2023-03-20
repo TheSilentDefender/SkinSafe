@@ -4,16 +4,9 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
-      'avatars.githubusercontent.com',
-      'avatar.tobi.sh',
-      'cloudflare-ipfs.com',
-      'loremflickr.com'
+      'media.ulta.com'
     ]
   },
-  experimental: {
-    legacyBrowsers: false,
-    browsersListForSwc: true
-  }
-};
+}
 
 module.exports = nextConfig;
