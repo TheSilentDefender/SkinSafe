@@ -20,6 +20,7 @@ export default function Home() {
   const [compareData, setCompareData] = useState<any>(null);
 
   const handleCompareProducts = async () => {
+    document.getElementById('compareButton').innerHTML = 'Loading...';
     const productIds = selectedProducts.map((product) => product._id);
     console.log(productIds);
     const response = await fetch('/api/findsimilar', {
@@ -34,6 +35,11 @@ export default function Home() {
     console.error(data);
     setCompareData(data);
     setIsModalOpen(true);
+    document.getElementById('compareButton').innerHTML = 'Compare';
+  };
+
+  const closeCompareProducts = async () => {
+    setIsModalOpen(false);
   };
 
   useEffect(() => {
@@ -110,6 +116,7 @@ export default function Home() {
           ))}
         </ul>
         <button
+          id="compareButton"
           className="transform-bg duration-200 bg-blue-600 hover:bg-blue-400 text-white font-bold py-2 px-4 w-full rounded-lg"
           onClick={handleCompareProducts}
         >
@@ -117,21 +124,21 @@ export default function Home() {
         </button>
 
         {isModalOpen && (
-          <div className="fixed z-10 inset-0 overflow-y-auto">
-            <div className="flex items-center justify-center h-screen">
-              <div className="bg-white p-6 rounded-lg">
-                <h2 className="mb-4">Comparison Results</h2>
+          <div className="m-20 items-center justify-center fixed z-10 inset-0">
+            <div className="flex items-center justify-center h-full m-10">
+              <div className="flex flex-col items-center  bg-white p-6 rounded-2xl h-full w-auto overflow-hidden overflow-y-scroll">
+                <h2 className="mb-4"><b>Comparison Results</b></h2>
                 {compareData.map((product: any) => (
-              <div className="w-1/2">
-                <div className="flex items-center mb-2 bg-black bg-opacity-20 p-2 rounded-2xl ">
-                  <div className="flex-1 text-white">{product.name}</div>
-                  <GetImage url={product.product_url} name={product.name} />
-                </div>
-              </div>
-            ))}                    
+                  <div className="w-full">
+                    <div className="flex items-center justify-center mb-2  bg-slate-100 p-2 rounded-2xl ">
+                      <div className="flex-1 text-black"><b>{product.brand}</b><br />{product.name}</div>
+                      <GetImage url={product.product_url} name={product.name} />
+                    </div>
+                  </div>
+                ))}
                 <button
-                  className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 mt-4 rounded"
-                  onClick={handleCompareProducts}
+                  className="bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 mt-4 rounded"
+                  onClick={closeCompareProducts}
                 >
                   Close
                 </button>
