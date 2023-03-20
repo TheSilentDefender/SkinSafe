@@ -62,7 +62,7 @@ export default function Home() {
   return (
     <div className="flex bg-transparent">
       <div className="w-1/2 p-8">
-        <h1 className="bg-clip-text bg-gradient-to-b from-purple-300 via-white to-blue-300 border-b my-3 py-3 font-bold text-6xl text-transparent">SkinSafe</h1>
+        <h1 className="bg-clip-text bg-gradient-to-b from-purple-300 via-white to-blue-300 border-b my-3 py-3 font-bold text-6xl text-transparent">DermoPax</h1>
         <div className="flex mb-4">
           <input
             className="w-full rounded-lg"
@@ -120,7 +120,7 @@ export default function Home() {
           className="transform-bg duration-200 bg-blue-600 hover:bg-blue-400 text-white font-bold py-2 px-4 w-full rounded-lg"
           onClick={handleCompareProducts}
         >
-          Compare
+          Find Similar Products
         </button>
 
         {isModalOpen && (
