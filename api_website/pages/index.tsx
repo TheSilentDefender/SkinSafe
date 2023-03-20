@@ -20,10 +20,9 @@ export default function Home() {
   const [compareData, setCompareData] = useState<any>(null);
 
   const handleCompareProducts = async () => {
-    document.getElementById('compareButton').innerHTML = 'Loading...';
     const productIds = selectedProducts.map((product) => product._id);
     console.log(productIds);
-    const response = await fetch('/api/findsimilar', {
+    const response = await fetch('https://skin-safe.vercel.app/api/findsimilar', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -35,7 +34,6 @@ export default function Home() {
     console.error(data);
     setCompareData(data);
     setIsModalOpen(true);
-    document.getElementById('compareButton').innerHTML = 'Compare';
   };
 
   const closeCompareProducts = async () => {
@@ -43,7 +41,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/searchproduct?search=' + search)
+    fetch('https://skin-safe.vercel.app/api/searchproduct?search=' + search)
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
